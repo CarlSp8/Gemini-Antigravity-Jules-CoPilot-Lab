@@ -9,3 +9,15 @@
   <a href="https://aistudio.google.com/apps">Start building</a>
 
 </div>
+
+## Private Now, Public Later
+
+This repository demonstrates the software engineering concept of transitioning code visibility from private to public. The example shows how to design APIs with proper encapsulation, starting with internal (private) implementation and later exposing a stable public interface.
+
+### Running the Example
+
+```bash
+python3 example.py
+```
+
+The example demonstrates a `DataManager` class with public methods that provide a clean, stable API for managing data collections.
