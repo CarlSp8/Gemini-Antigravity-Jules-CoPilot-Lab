@@ -10,6 +10,13 @@
 
 ---
 
+## 📖 Documentation
+
+- **[Getting Started Guide](./GETTING_STARTED.md)** - Quick start guide for new users
+- **[API Reference](./API_REFERENCE.md)** - Complete API documentation for utilities
+
+---
+
 ## 📚 Overview
 
 The **GitHub Developers Suite** is a complete framework designed to help developers at all levels grow their skills, advance their careers, and maintain high standards of excellence. This suite includes:
