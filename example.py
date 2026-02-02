@@ -17,20 +17,21 @@ class DataManager:
     def __init__(self):
         # Public attributes - part of the stable API
         self.data = []
-        self.count = 0
+        # Private attribute (internal use only)
+        self._count = 0
     
     def add_item(self, item):
         """Public method to add an item to the data collection."""
         self.data.append(item)
-        self.count += 1
+        self._count += 1
     
     def get_items(self):
         """Public method to retrieve all items."""
         return self.data.copy()
     
     def get_count(self):
-        """Public method to get the count of items."""
-        return self.count
+        """Public method to get the count of items (exposes private _count)."""
+        return self._count
 
 
 if __name__ == "__main__":
