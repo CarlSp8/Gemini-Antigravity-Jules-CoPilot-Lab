@@ -46,7 +46,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Navbar Background on Scroll
 const navbar = document.querySelector('.navbar');
-let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
@@ -56,8 +55,6 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
     }
-    
-    lastScroll = currentScroll;
 });
 
 // Intersection Observer for Animations
@@ -102,6 +99,14 @@ function createParticle() {
     
     const particle = document.createElement('div');
     particle.className = 'particle';
+    
+    // Generate random values for this specific particle
+    const randomX = Math.random() * 100 - 50;
+    const randomY = Math.random() * 100 - 50;
+    const randomDuration = 3 + Math.random() * 4;
+    const startX = Math.random() * 100;
+    const startY = Math.random() * 100;
+    
     particle.style.cssText = `
         position: absolute;
         width: 4px;
@@ -109,16 +114,18 @@ function createParticle() {
         background: rgba(255, 255, 255, 0.5);
         border-radius: 50%;
         pointer-events: none;
-        left: ${Math.random() * 100}%;
-        top: ${Math.random() * 100}%;
-        animation: particle-float ${3 + Math.random() * 4}s ease-in-out infinite;
+        left: ${startX}%;
+        top: ${startY}%;
+        --random-x: ${randomX}px;
+        --random-y: ${randomY}px;
+        animation: particle-float ${randomDuration}s ease-in-out forwards;
     `;
     
     hero.appendChild(particle);
     
     setTimeout(() => {
         particle.remove();
-    }, 7000);
+    }, randomDuration * 1000);
 }
 
 // Create particles periodically
@@ -128,7 +135,7 @@ setInterval(createParticle, 300);
 const style = document.createElement('style');
 style.textContent = `
     @keyframes particle-float {
-        0%, 100% {
+        0% {
             transform: translate(0, 0);
             opacity: 0;
         }
@@ -139,7 +146,7 @@ style.textContent = `
             opacity: 1;
         }
         100% {
-            transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+            transform: translate(var(--random-x), var(--random-y));
             opacity: 0;
         }
     }
