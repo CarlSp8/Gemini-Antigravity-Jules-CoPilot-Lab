@@ -17,7 +17,8 @@ This repository demonstrates best practices for creating clear, descriptive vari
 ### 📚 Resources
 
 - **[NAMING_GUIDE.md](NAMING_GUIDE.md)** - Comprehensive guide on naming conventions and best practices
-- **[naming_examples.py](naming_examples.py)** - Side-by-side examples comparing poor vs. good naming practices
+- **[naming_examples.py](naming_examples.py)** - Side-by-side examples comparing poor vs. good naming practices (10 examples)
+- **[shopping_cart_example.py](shopping_cart_example.py)** - Advanced real-world example: E-commerce shopping cart with complete naming best practices
 
 ### 🎯 Key Principles
 
