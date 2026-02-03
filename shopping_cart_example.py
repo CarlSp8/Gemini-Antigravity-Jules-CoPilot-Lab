@@ -7,7 +7,7 @@ This module implements a simple shopping cart system with proper naming conventi
 """
 
 from datetime import datetime
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 from dataclasses import dataclass
 from enum import Enum
 
@@ -229,7 +229,7 @@ class ShoppingCart:
         
         return None
     
-    def generate_cart_summary(self) -> Dict[str, any]:
+    def generate_cart_summary(self) -> Dict[str, Any]:
         """Generate a comprehensive summary of the shopping cart."""
         cart_summary = {
             'customer_id': self.customer_id,

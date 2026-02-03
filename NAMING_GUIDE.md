@@ -40,7 +40,7 @@ def process(data):
 **✅ Good Example:**
 ```python
 def double_employee_salary(employee_record):
-    current_salary = employee_record['value']
+    current_salary = employee_record['salary']
     doubled_salary = current_salary * 2
     return doubled_salary
 ```
