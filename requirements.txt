@@ -1,0 +1,19 @@
+# Python dependencies for Spark + Gemini AI integration
+# Install with: pip install -r requirements.txt
+
+# PySpark
+pyspark>=3.5.0
+
+# Google Generative AI (Gemini)
+google-generativeai>=0.3.0
+
+# Data processing and analysis
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Jupyter (if not using Docker container)
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+
+# Utilities
+python-dotenv>=1.0.0
