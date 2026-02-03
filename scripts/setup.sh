@@ -48,7 +48,11 @@ echo "✓ Directories created"
 # Pull Docker images
 echo ""
 echo "Pulling Docker images (this may take a few minutes)..."
-docker-compose pull
+if command -v docker-compose &> /dev/null; then
+    docker-compose pull
+else
+    docker compose pull
+fi
 
 echo ""
 echo "======================================"

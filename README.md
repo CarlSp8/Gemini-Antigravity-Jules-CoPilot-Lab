@@ -75,7 +75,7 @@ cp .env.example .env
 ### 3. Start the Environment
 
 ```bash
-# Start all services
+# Start all services (use 'docker compose' for V2, or 'docker-compose' for V1)
 docker compose up -d
 
 # Check logs
@@ -163,14 +163,14 @@ This environment is optimized for AI-assisted development:
 ### Common Commands
 
 ```bash
-# Using Docker Compose directly
+# Using Docker Compose (V2 syntax recommended, V1 with hyphen also works)
 docker compose up -d              # Start services
 docker compose down               # Stop services
 docker compose logs -f            # View logs
 docker compose restart            # Restart services
 docker exec -it [container] [cmd] # Execute command
 
-# OR use the Makefile for convenience
+# OR use the Makefile for convenience (handles both V1 and V2)
 make start                        # Start all services
 make stop                         # Stop all services
 make logs                         # View all logs
@@ -196,19 +196,19 @@ make help                         # Show all available commands
 docker ps
 
 # Check logs for errors
-docker-compose logs
+docker compose logs
 ```
 
 ### Can't connect to Spark
 
-- Ensure all containers are running: `docker-compose ps`
+- Ensure all containers are running: `docker compose ps`
 - Check Spark Master UI at http://localhost:8080
 - Verify worker is connected to master
 
 ### Jupyter token not working
 
 - Check `.env` file for `JUPYTER_TOKEN`
-- Find token in logs: `docker-compose logs jupyter`
+- Find token in logs: `docker compose logs jupyter`
 
 ## 🤝 Contributing
 
