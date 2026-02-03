@@ -9,3 +9,19 @@
   <a href="https://aistudio.google.com/apps">Start building</a>
 
 </div>
+
+## Preview
+
+View the [preview page](preview.html) to see a demonstration of the landing page for this project.
+
+To view the preview locally, open `preview.html` in your browser or serve it with a local server:
+
+```bash
+# Using Python
+python -m http.server 8000
+
+# Using Node.js
+npx serve .
+```
+
+Then navigate to `http://localhost:8000/preview.html`
