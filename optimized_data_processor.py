@@ -55,12 +55,11 @@ class OptimizedDataProcessor:
     
     def search_in_list(self, items, target):
         """
-        Search for item in list - OPTIMIZED: Using set for O(1) lookup.
+        Search for item in list - OPTIMIZED: Using built-in index().
         
-        Improvement: Convert to set for constant-time lookup vs linear search.
-        Note: For repeated searches, convert once and reuse the set.
+        Improvement: Uses Python's optimized built-in index() method instead of manual loop.
+        Note: Still O(n) complexity. For O(1) lookups with repeated searches, convert to set first.
         """
-        # For single search, Python's built-in 'in' is still better than manual loop
         try:
             return items.index(target)
         except ValueError:

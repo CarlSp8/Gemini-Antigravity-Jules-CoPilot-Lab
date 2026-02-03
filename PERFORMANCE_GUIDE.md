@@ -18,7 +18,7 @@ This project contains:
 
 ## Detailed Optimizations
 
-### 1. Find Duplicates (1010x faster)
+### 1. Find Duplicates (~1000x faster)
 **Problem:** O(n²) nested loops checking every element against every other element
 ```python
 # SLOW - O(n²)
@@ -39,7 +39,7 @@ for num in numbers:
     seen.add(num)
 ```
 
-### 2. String Concatenation (121x faster)
+### 2. String Concatenation (~120x faster)
 **Problem:** O(n²) string concatenation in loop creates new string each iteration
 ```python
 # SLOW - O(n²)
@@ -54,7 +54,7 @@ for s in strings:
 return ",".join(strings)
 ```
 
-### 3. Sorting (213x faster)
+### 3. Sorting (~210x faster)
 **Problem:** O(n²) bubble sort algorithm
 ```python
 # SLOW - O(n²)
@@ -70,7 +70,7 @@ for i in range(n):
 return sorted(strings, key=len)
 ```
 
-### 4. Finding Common Elements (266x faster)
+### 4. Finding Common Elements (~270x faster)
 **Problem:** O(n*m) nested loops
 ```python
 # SLOW - O(n*m)
@@ -86,7 +86,7 @@ for item1 in list1:
 return list(set(list1) & set(list2))
 ```
 
-### 5. Fibonacci Calculation (11,598x faster!)
+### 5. Fibonacci Calculation (~11,500x faster!)
 **Problem:** Exponential time complexity O(2ⁿ) with naive recursion
 ```python
 # SLOW - O(2ⁿ)
@@ -117,7 +117,7 @@ def calculate_fibonacci_iterative(self, n):
     return b
 ```
 
-### 6. Word Frequency Counting (12x faster)
+### 6. Word Frequency Counting (~12x faster)
 **Problem:** O(n²) nested loops through list
 ```python
 # SLOW - O(n²)
@@ -135,7 +135,7 @@ for word in words:
     frequency[word] = frequency.get(word, 0) + 1
 ```
 
-### 7. Remove Duplicates (15x faster)
+### 7. Remove Duplicates (~15x faster)
 **Problem:** O(n²) checking membership in growing list
 ```python
 # SLOW - O(n²)
@@ -151,7 +151,7 @@ for item in items:
 return list(dict.fromkeys(items))
 ```
 
-### 8. Calculate Sum (3x faster)
+### 8. Calculate Sum (~3x faster)
 **Problem:** Manual loop accumulation
 ```python
 # SLOW
