@@ -13,8 +13,8 @@ This project contains:
 ## Performance Improvements Summary
 
 ### Overall Results
-- **Total Speedup: 56.87x faster**
-- **Overall Improvement: 98.2% reduction in execution time**
+- **Total Speedup: 57.29x faster**
+- **Overall Improvement: 98.3% reduction in execution time**
 
 ## Detailed Optimizations
 
@@ -86,7 +86,7 @@ for item1 in list1:
 return list(set(list1) & set(list2))
 ```
 
-### 5. Fibonacci Calculation (11,301x faster!)
+### 5. Fibonacci Calculation (11,598x faster!)
 **Problem:** Exponential time complexity O(2ⁿ) with naive recursion
 ```python
 # SLOW - O(2ⁿ)
@@ -96,14 +96,16 @@ def calculate_fibonacci(self, n):
     return self.calculate_fibonacci(n - 1) + self.calculate_fibonacci(n - 2)
 ```
 
-**Solution:** Linear time O(n) with memoization or iterative approach
+**Solution:** Linear time O(n) with manual memoization or iterative approach
 ```python
-# FAST - O(n) with memoization
-@lru_cache(maxsize=None)
+# FAST - O(n) with manual memoization
 def calculate_fibonacci(self, n):
-    if n <= 1:
-        return n
-    return self.calculate_fibonacci(n - 1) + self.calculate_fibonacci(n - 2)
+    if n not in self.cache:
+        if n <= 1:
+            self.cache[n] = n
+        else:
+            self.cache[n] = self.calculate_fibonacci(n - 1) + self.calculate_fibonacci(n - 2)
+    return self.cache[n]
 
 # FASTEST - O(n) time, O(1) space
 def calculate_fibonacci_iterative(self, n):

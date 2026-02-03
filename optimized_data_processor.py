@@ -5,7 +5,6 @@ This module demonstrates performance best practices and efficient algorithms.
 
 import time
 import random
-from functools import lru_cache
 
 
 class OptimizedDataProcessor:
@@ -131,17 +130,20 @@ class OptimizedDataProcessor:
         except FileNotFoundError:
             return []
     
-    @lru_cache(maxsize=None)
     def calculate_fibonacci(self, n):
         """
-        Calculate Fibonacci - OPTIMIZED: With memoization using lru_cache.
+        Calculate Fibonacci - OPTIMIZED: With manual memoization.
         
-        Improvement: Avoid redundant calculations with automatic memoization.
+        Improvement: Avoid redundant calculations with memoization.
         Reduces exponential time complexity to linear.
+        Note: Using instance cache to avoid issues with lru_cache on instance methods.
         """
-        if n <= 1:
-            return n
-        return self.calculate_fibonacci(n - 1) + self.calculate_fibonacci(n - 2)
+        if n not in self.cache:
+            if n <= 1:
+                self.cache[n] = n
+            else:
+                self.cache[n] = self.calculate_fibonacci(n - 1) + self.calculate_fibonacci(n - 2)
+        return self.cache[n]
     
     def calculate_fibonacci_iterative(self, n):
         """

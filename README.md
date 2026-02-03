@@ -17,11 +17,11 @@
 This repository demonstrates identifying and fixing common performance issues in Python code.
 
 ### 🚀 Key Results
-- **56.87x overall speedup** achieved through algorithmic improvements
-- **98.2% reduction** in execution time
-- Fibonacci calculation: **11,301x faster** with memoization
-- String concatenation: **121x faster** using join()
-- Finding duplicates: **1,010x faster** using sets
+- **57.29x overall speedup** achieved through algorithmic improvements
+- **98.3% reduction** in execution time
+- Fibonacci calculation: **11,598x faster** with memoization
+- String concatenation: **122x faster** using join()
+- Finding duplicates: **959x faster** using sets
 
 ### 📁 Project Structure
 - `data_processor.py` - Original code with performance anti-patterns
