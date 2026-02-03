@@ -45,6 +45,8 @@ This repository provides a complete **open-source, MIT-licensed** home lab setup
 
 ## 🏃 Quick Start
 
+> **New to this?** Check out our [Quick Start Guide](QUICKSTART.md) for a step-by-step walkthrough!
+
 ### 1. Clone and Setup
 
 ```bash
@@ -55,6 +57,9 @@ cd Gemini-Antigravity-Jules-CoPilot-Lab
 # Run the setup script
 chmod +x scripts/setup.sh
 ./scripts/setup.sh
+
+# OR use make (if available)
+make setup
 ```
 
 ### 2. Configure Environment
@@ -71,10 +76,13 @@ cp .env.example .env
 
 ```bash
 # Start all services
-docker-compose up -d
+docker compose up -d
 
 # Check logs
-docker-compose logs -f
+docker compose logs -f
+
+# OR use make
+make start
 ```
 
 ### 4. Access the Services
@@ -155,20 +163,21 @@ This environment is optimized for AI-assisted development:
 ### Common Commands
 
 ```bash
-# Start services
-docker-compose up -d
+# Using Docker Compose directly
+docker compose up -d              # Start services
+docker compose down               # Stop services
+docker compose logs -f            # View logs
+docker compose restart            # Restart services
+docker exec -it [container] [cmd] # Execute command
 
-# Stop services
-docker-compose down
-
-# View logs
-docker-compose logs -f [service-name]
-
-# Restart a service
-docker-compose restart [service-name]
-
-# Execute command in container
-docker exec -it [container-name] [command]
+# OR use the Makefile for convenience
+make start                        # Start all services
+make stop                         # Stop all services
+make logs                         # View all logs
+make status                       # Check service status
+make verify                       # Verify installation
+make example                      # Run example script
+make help                         # Show all available commands
 ```
 
 ## 📖 Learning Resources
