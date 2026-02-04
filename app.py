@@ -127,7 +127,7 @@ if __name__ == "__main__":
     ╔═══════════════════════════════════════════════════════════╗
     ║          Gemini AI Studio - SOTA Edition                  ║
     ║                                                           ║
-    ║  Server starting on http://{host}:{port}           ║
+    ║  Server starting on http://{host:<15}:{port:<5}       ║
     ║                                                           ║
     ║  Features:                                                ║
     ║  ✓ Multimodal Gemini AI                                  ║
