@@ -161,9 +161,22 @@ function createParticle() {
     }, randomDuration * 1000);
 }
 
-// Create particles periodically - OPTIMIZED: Reduced from 300ms to 500ms
+// Create particles periodically - OPTIMIZED: Use requestAnimationFrame for better performance
+let lastParticleTime = 0;
+const PARTICLE_INTERVAL = 500; // ms between particles
+
+function particleLoop(currentTime) {
+    if (hero) {
+        if (currentTime - lastParticleTime >= PARTICLE_INTERVAL) {
+            createParticle();
+            lastParticleTime = currentTime;
+        }
+        requestAnimationFrame(particleLoop);
+    }
+}
+
 if (hero) {
-    setInterval(createParticle, 500);
+    requestAnimationFrame(particleLoop);
 }
 
 // Add CSS for particles - OPTIMIZED: Only add once

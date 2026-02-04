@@ -89,17 +89,26 @@ window.addEventListener('scroll', () => {
 ```
 **Benefit**: 80% reduction in scroll event handler executions
 
-#### Optimization 3: Particle Management
+#### Optimization 3: Particle Management with requestAnimationFrame
 ```javascript
-// Before: Unlimited particles every 300ms
+// Before: Unlimited particles every 300ms with setInterval
 setInterval(createParticle, 300);
 
-// After: Limited particles every 500ms
+// After: Limited particles + requestAnimationFrame
 const MAX_PARTICLES = 15;
-let particleCount = 0;
-setInterval(createParticle, 500);
+const PARTICLE_INTERVAL = 500;
+let lastParticleTime = 0;
+
+function particleLoop(currentTime) {
+    if (currentTime - lastParticleTime >= PARTICLE_INTERVAL) {
+        createParticle();
+        lastParticleTime = currentTime;
+    }
+    requestAnimationFrame(particleLoop);
+}
+requestAnimationFrame(particleLoop);
 ```
-**Benefit**: 40% reduction in creation rate + memory protection
+**Benefit**: 40% reduction in creation rate + memory protection + better animation sync
 
 ### Python Utilities (developer_tools.py)
 

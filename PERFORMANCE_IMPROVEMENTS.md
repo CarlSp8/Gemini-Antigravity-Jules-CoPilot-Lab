@@ -56,25 +56,37 @@ window.addEventListener('scroll', () => {
 
 ---
 
-### 3. Reduced Particle Creation Frequency
-**Issue**: Creating particles every 300ms can be resource-intensive
+### 3. Reduced Particle Creation Frequency and requestAnimationFrame
+**Issue**: Creating particles every 300ms with setInterval can be resource-intensive and not aligned with browser repaint
 **Solution**: 
 - Increased interval to 500ms
 - Added maximum particle limit (15 concurrent)
+- Replaced setInterval with requestAnimationFrame for smoother animations
 
 ```javascript
-// Before: Creates new particle every 300ms
+// Before: Creates new particle every 300ms with setInterval
 setInterval(createParticle, 300);
 
-// After: Reduced frequency + particle limit
+// After: requestAnimationFrame + reduced frequency + particle limit
 const MAX_PARTICLES = 15;
-setInterval(createParticle, 500);
+const PARTICLE_INTERVAL = 500;
+let lastParticleTime = 0;
+
+function particleLoop(currentTime) {
+    if (currentTime - lastParticleTime >= PARTICLE_INTERVAL) {
+        createParticle();
+        lastParticleTime = currentTime;
+    }
+    requestAnimationFrame(particleLoop);
+}
+requestAnimationFrame(particleLoop);
 ```
 
 **Impact**: 
 - ~40% reduction in particle creation rate
 - Prevents memory issues from unlimited particle accumulation
-- Smoother performance on lower-end devices
+- Better synchronization with browser repaint cycle
+- Smoother animations and better battery life on mobile devices
 
 ---
 
