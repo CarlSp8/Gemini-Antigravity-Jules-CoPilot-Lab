@@ -9,6 +9,10 @@ The following files have been optimized for better performance:
 - `developer_tools.py` - Python utilities with algorithmic improvements
 - `developer_tools.js` - JavaScript utilities with data structure optimizations
 
+**Source of Original Code**: The inefficient code patterns were identified by analyzing existing implementations in other branches:
+- `script.js` - Based on code from `copilot/create-website-project` branch
+- `developer_tools.py` and `developer_tools.js` - Based on code from `copilot/implement-developers-suite` branch
+
 ---
 
 ## JavaScript Website Optimizations (script.js)
@@ -314,10 +318,10 @@ const description = prData.description || "";
 ## Future Optimization Opportunities
 
 1. **Web Workers**: Move particle creation to a Web Worker for true parallelism
-2. **Request Animation Frame**: Use for smoother animations instead of setInterval
-3. **Virtualization**: For large lists, implement virtual scrolling
-4. **Code Splitting**: Lazy load features that aren't immediately needed
-5. **Memoization**: Add function-level caching for frequently called functions with same inputs
+2. **Virtualization**: For large lists, implement virtual scrolling
+3. **Code Splitting**: Lazy load features that aren't immediately needed
+4. **Memoization**: Add function-level caching for frequently called functions with same inputs
+5. **Service Workers**: Cache static assets for faster subsequent loads
 
 ---
 

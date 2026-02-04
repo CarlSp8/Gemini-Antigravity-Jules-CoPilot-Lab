@@ -4,6 +4,12 @@
 
 This document provides a comprehensive analysis of performance inefficiencies identified in the codebase and the improvements implemented to address them.
 
+**Note on Source Material**: The original inefficient code was analyzed from existing branches in this repository:
+- `script.js` from the `copilot/create-website-project` branch
+- `developer_tools.py` and `developer_tools.js` from the `copilot/implement-developers-suite` branch
+
+The "Before" code examples in this document reference the original implementations from those branches.
+
 ## Files Analyzed and Optimized
 
 1. **script.js** - Website JavaScript (Frontend)
@@ -91,7 +97,8 @@ window.addEventListener('scroll', () => {
 
 #### Optimization 3: Particle Management with requestAnimationFrame
 ```javascript
-// Before: Unlimited particles every 300ms with setInterval
+// Before (from website branch): Unlimited particles every 300ms with setInterval
+// Note: The original inefficient code was identified in the copilot/create-website-project branch
 setInterval(createParticle, 300);
 
 // After: Limited particles + requestAnimationFrame
