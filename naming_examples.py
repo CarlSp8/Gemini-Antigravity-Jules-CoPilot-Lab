@@ -128,7 +128,7 @@ RATE = 0.15
 
 # ✅ GOOD: Clear constant purpose
 MAX_LOGIN_ATTEMPTS = 100
-MIN_PASSWORD_LENGTH = 0
+MIN_PASSWORD_LENGTH = 8  # Minimum 8 characters for security
 DEFAULT_TAX_RATE = 0.15
 
 

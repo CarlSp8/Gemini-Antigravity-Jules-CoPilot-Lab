@@ -33,11 +33,13 @@ class Cart:
     
     def check(self, c):
         """Check if coupon valid"""
+        # BAD: Hardcoded list, doesn't support all coupons
         return c in ["SAVE10", "SAVE20"]
     
     def apply(self, c):
         """Apply discount"""
         if self.check(c):
+            # BAD: Hardcoded logic
             if c == "SAVE10":
                 self.t *= 0.9
             elif c == "SAVE20":
